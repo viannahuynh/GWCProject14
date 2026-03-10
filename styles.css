@@ -1,0 +1,29 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+body { 
+    display: flex; 
+    flex-direction: column; 
+    height: 100vh; 
+    font-family: sans-serif; 
+}
+#navbar { 
+    background: #f4a261; 
+    height: 50px; 
+}
+#header {
+    background: #e76f51; 
+    height: 60px; 
+}
+#calendar-section { 
+    background: #2a9d8f; 
+    flex: 1;
+    display: flex; 
+    flex-direction: column; 
+}
+#footer-actions { 
+    background: #a8dadc; 
+    height: 200px; 
+}
