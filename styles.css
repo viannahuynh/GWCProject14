@@ -1,0 +1,92 @@
+.hidden {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    width: 600px;
+    background: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    padding: 20px 22px;
+    box-shadow: none;
+}
+
+.modal-content h2 {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    font-size: 12px;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 7px 8px;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    font-size: 12px;
+    box-sizing: border-box;
+    background: white;
+}
+
+.form-group textarea {
+    resize: none;
+    height: 85px;
+}
+
+.time-row {
+    display: flex;
+    gap: 12px;
+}
+
+.time-row .form-group {
+    flex: 1;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.modal-actions button {
+    min-width: 95px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+#addEventBtn {
+    background: #b8dca8;
+}
+
+#cancelEventBtn {
+    background: #d9d9d9;
+}
