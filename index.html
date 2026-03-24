@@ -17,6 +17,56 @@
     </div>
     <div id="calendar-section">
         <!-- Calendar section content goes here -->
+
+        <!-- ====================== Create event button for modal Start ====================== -->
+        <button id="open">Create Event</button>
+
+        <!-- Wrapper-->
+        <div class="modal-container">
+            <!-- Contents -->
+            <div class="modal">
+                <div class="form-header">
+                    <h2>Create Event</h2>
+                    <!--Close-->
+                    <button id="close" class="form-btn">Close</button>
+                </div>
+                
+                <!--Form start-->
+                <form action="#" method="#" id="eventForm">
+                    <div>
+                        <label for="eventTitle">Event Title</label>
+                        <input type="text" id="eventTitle" name="title" placeholder="Birthday / Wedding ...." required>
+                    </div>
+                    
+                    <div>
+                        <label for="eventDate">Date</label>
+                        <input type="date" id="eventDate" name="date">
+                    </div>
+
+                    <div>
+                        <label for="startTime">Start Time</label>
+                        <input type="time" id="startTime" name="startTime">
+                    </div>
+                    
+                    <div>
+                        <label for="endTime">End Time</label>
+                        <input type="time" id="endTime" name="endTime">
+                    </div>
+
+                    <div>
+                        <label for="eventDescription">Description</label>
+                        <textarea id="eventDescription" name="description" placeholder="Your text here...." rows="3"></textarea>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" id="cancelModalBtn" class="form-btn">Cancel</button>
+                        <button type="submit" id="saveEventBtn" class="form-btn">Create Event</button>
+                    </div>
+                </form>
+                <!--Form end-->
+            </div>
+        </div>
+        <!-- ====================== Create event button for modal End ====================== -->
     </div>
     <div id="footer-actions">
         <!-- Footer actions content goes here -->
