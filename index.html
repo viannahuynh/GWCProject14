@@ -3,10 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calendar Dashboard</title>
+
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="lastMinuteEventModal" class="modal hidden">
+    <div class="modal-content">
+        <h2 id="modalTitle">Add a Last Minute Event</h2>
+
+        <form id="lastMinuteEventForm">
+            <div class="form-group">
+                <label for="eventTitle">Event Title</label>
+                <input type="text" id="eventTitle" name="eventTitle">
+            </div>
+
+            <div class="form-group">
+                <label for="eventDate">Date</label>
+                <input type="date" id="eventDate" name="eventDate">
+            </div>
+
+            <div class="time-row">
+                <div class="form-group">
+                    <label for="startTime">Start Time</label>
+                    <input type="time" id="startTime" name="startTime">
+                </div>
+
+                <div class="form-group">
+                    <label for="endTime">End Time</label>
+                    <input type="time" id="endTime" name="endTime">
+                </div>
+            </div>
+
+            <div class="form-group">
+                    <label for="description">Description / Notes</label>
+                    <textarea id="description" name="description"></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button type="submit" id="addEventBtn">Add Event</button>
+                <button type="button" id="cancelEventBtn">Cancel</button>
+            </div>
+        </form>
+
+    </div>
+    </div>
+
+    <script src="app.js"></script>
     <div id="navbar">
         <!-- Navigation bar content goes here -->
         <h1>My Calendar App</h1>
