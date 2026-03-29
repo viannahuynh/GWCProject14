@@ -3,117 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar Dashboard</title>
+    <title>GoalStepper</title>
 
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles.css">
+
+    <style>
+    /* ===== Button 52 ===== */
+    .button-52 {
+      font-size: 16px;
+      padding: 13px 20px;
+      border: 1px solid black;
+      cursor: pointer;
+      position: relative;
+      background: transparent;
+    }
+
+    .button-52:after {
+      content: "";
+      background-color: #ffe54c;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      z-index: -1;
+      transition: 0.2s;
+    }
+
+    .button-52:hover:after {
+      top: 0;
+      left: 0;
+    }
+
+    /* ===== Modal ===== */
+    .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 8px;
+    }
+
+    .modal-actions {
+        display: flex;
+        justify-content: space-between;
+    }
+    </style>
 </head>
+
 <body>
-    <div id="lastMinuteEventModal" class="modal hidden">
-    <div class="modal-content">
-        <h2 id="modalTitle">Add a Last Minute Event</h2>
 
-        <form id="lastMinuteEventForm">
-            <div class="form-group">
-                <label for="eventTitle">Event Title</label>
-                <input type="text" id="eventTitle" name="eventTitle">
-            </div>
-
-            <div class="form-group">
-                <label for="eventDate">Date</label>
-                <input type="date" id="eventDate" name="eventDate">
-            </div>
-
-            <div class="time-row">
-                <div class="form-group">
-                    <label for="startTime">Start Time</label>
-                    <input type="time" id="startTime" name="startTime">
-                </div>
-
-                <div class="form-group">
-                    <label for="endTime">End Time</label>
-                    <input type="time" id="endTime" name="endTime">
-                </div>
-            </div>
-
-            <div class="form-group">
-                    <label for="description">Description / Notes</label>
-                    <textarea id="description" name="description"></textarea>
-            </div>
-
-            <div class="modal-actions">
-                <button type="submit" id="addEventBtn">Add Event</button>
-                <button type="button" id="cancelEventBtn">Cancel</button>
-            </div>
-        </form>
-
-    </div>
-    </div>
-
-    <script src="app.js"></script>
+    <!-- NAVBAR -->
     <div id="navbar">
-        <!-- Navigation bar content goes here -->
-        <h1>My Calendar App</h1>
+        <h1>GoalStepper</h1>
     </div>
-        
+
+    <!-- HEADER -->
     <div id="header">
-        <!-- Header content goes here -->
+        <h2>fit your goals into your every day life</h2>
     </div>
+
+    <!-- BUTTON -->
     <div id="calendar-section">
-        <!-- Calendar section content goes here -->
-
-        <!-- ====================== Create event button for modal Start ====================== -->
-        <button id="open">Create Event</button>
-
-        <!-- Wrapper-->
-        <div class="modal-container">
-            <!-- Contents -->
-            <div class="modal">
-                <div class="form-header">
-                    <h2>Create Event</h2>
-                    <!--Close-->
-                    <button id="close" class="form-btn">Close</button>
-                </div>
-                
-                <!--Form start-->
-                <form action="#" method="#" id="eventForm">
-                    <div>
-                        <label for="eventTitle">Event Title</label>
-                        <input type="text" id="eventTitle" name="title" placeholder="Birthday / Wedding ...." required>
-                    </div>
-                    
-                    <div>
-                        <label for="eventDate">Date</label>
-                        <input type="date" id="eventDate" name="date">
-                    </div>
-
-                    <div>
-                        <label for="startTime">Start Time</label>
-                        <input type="time" id="startTime" name="startTime">
-                    </div>
-                    
-                    <div>
-                        <label for="endTime">End Time</label>
-                        <input type="time" id="endTime" name="endTime">
-                    </div>
-
-                    <div>
-                        <label for="eventDescription">Description</label>
-                        <textarea id="eventDescription" name="description" placeholder="Your text here...." rows="3"></textarea>
-                    </div>
-                    
-                    <div class="modal-actions">
-                        <button type="button" id="cancelModalBtn" class="form-btn">Cancel</button>
-                        <button type="submit" id="saveEventBtn" class="form-btn">Create Event</button>
-                    </div>
-                </form>
-                <!--Form end-->
-            </div>
-        </div>
-        <!-- ====================== Create event button for modal End ====================== -->
+        <button id="openModal" class="button-52">Create Event</button>
     </div>
-    <div id="footer-actions">
-        <!-- Footer actions content goes here -->
+
+    <!-- SINGLE MODAL -->
+    <div id="eventModal" class="modal hidden">
+        <div class="modal-content">
+
+            <h2>Create Event</h2>
+
+            <form id="eventForm">
+                <input type="text" placeholder="Event Title" required>
+                <input type="date">
+                <input type="time">
+                <input type="time">
+                <textarea placeholder="Description"></textarea>
+
+                <div class="modal-actions">
+                    <button type="button" id="cancelBtn">Cancel</button>
+                    <button type="submit">Save</button>
+                </div>
+            </form>
+
+        </div>
     </div>
 
     <script src="app.js"></script>

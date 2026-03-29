@@ -1,34 +1,92 @@
+/* =========================
+   Global Reset 
+========================= */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+    font-family: "Apple Chancery", cursive; 
+}
+
+/* =========================
+   Layout Sections
+========================= */
+#navbar { 
+    text-align: center;
+    background: #193819; 
+    height: 50px; 
+    padding-top: 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-c
+}
+
+#header {
+    background: #3D6D37; 
+    height: 60px; 
+    text-align: center;
+    padding-top: 10px;
+    font-size: smaller;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#calendar-section { 
+    background: #598532; 
+    flex: 1;
+    display: flex; 
+    flex-direction: column; 
+
+    
+}
+
+#footer-actions { 
+    background: #79A367; 
+    height: 30px; 
+}
+
+/* =========================
+   Utility
+========================= */
 .hidden {
     display: none;
 }
 
-.modal {
+/* =========================
+   Modal Overlay
+========================= */
+.modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.modal.hidden {
-    display: none;
-}
-
-.modal-content {
+/* =========================
+   Modal Box
+========================= */
+.modal {
     width: 600px;
-    background: white;
-    border: 1px solid #d9d9d9;
-    border-radius: 2px;
-    padding: 20px 22px;
-    box-shadow: none;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 8px;
+    background-color: #C2C2C2;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
 }
 
-.modal-content h2 {
-    margin: 0 0 16px 0;
-    font-size: 18px;
-    font-weight: 600;
-    text-align: left;
+/* =========================
+   Form Styling
+========================= */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
 }
 
 .form-group {
@@ -44,21 +102,38 @@
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+input,
+textarea {
     width: 100%;
-    padding: 7px 8px;
-    border: 1px solid #cfcfcf;
-    border-radius: 2px;
-    font-size: 12px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
     box-sizing: border-box;
     background: white;
 }
 
-.form-group textarea {
+textarea {
     resize: none;
     height: 85px;
 }
 
+input:focus, 
+textarea:focus {
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#eventDescription {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+/* =========================
+   Time Row
+========================= */
 .time-row {
     display: flex;
     gap: 12px;
@@ -68,6 +143,38 @@
     flex: 1;
 }
 
+/* =========================
+   Buttons
+========================= */
+.form-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50px;
+    transition: 0.3s ease-in-out;
+}
+
+.form-btn:hover {
+    color: #C2C2C2;
+    background-color: red;
+}
+
+/* Open Button */
+#open {
+    width: 310px;
+    height: 90px;
+    border: none;
+    border-radius: 50px;
+    background-color: #3D6D37;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+
+#open:hover {
+    background-color: #C2C2C2;
+}
+
+/* Modal Actions */
 .modal-actions {
     display: flex;
     justify-content: space-between;
@@ -75,268 +182,25 @@
 }
 
 .modal-actions button {
+    color: #142029;
+    background-color: #C2C2C2;
+    cursor: not-allowed;
     min-width: 95px;
     padding: 8px 18px;
-    border: none;
     border-radius: 18px;
-    cursor: pointer;
     font-size: 12px;
 }
 
+.modal-actions button:hover {
+    color: #142029;
+    background-color: #C2C2C2;
+}
+
+/* Specific Buttons */
 #addEventBtn {
     background: #b8dca8;
 }
 
 #cancelEventBtn {
     background: #d9d9d9;
-}* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-}
-body { 
-    display: flex; 
-    flex-direction: column; 
-    min-height: 100vh; 
-    font-family: sans-serif; 
-}
-#navbar { 
-    background: #f4a261; 
-    height: 50px; 
-}
-#header {
-    background: #e76f51; 
-    height: 60px; 
-}
-
-#calendar-section { 
-    background: #2a9d8f; 
-    flex: 1;
-    display: flex; 
-    flex-direction: column; 
-}
-
-/*============================================================== 
-  Create event Modal start
-  ============================================================== */
-/*Common styling start*/
-.form-btn{
-    padding: 10px 15px;
-    border: none;
-    border-radius: 50px;
-    transition: ease-in-out 0.3s;
-}
-.form-btn:hover{
-    color: white;
-    background-color: red;
-}
-/*Common styling start*/
-#open{
-    width: 310px;
-    height: 90px;
-    border: none;
-    border-radius: 50px;
-    background-color: #b0dbb2;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    transition: ease-in-out 0.3s;
-}
-#open:hover{
-    background-color: white;
-}
-.modal-container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    opacity: 100;
-    pointer-events: none;
-}
-.modal{
-    width: 600px;
-    max-width: 100%;
-    padding: 30px 50px;
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
-}
-.form-header{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-}
-#close{}
-#eventForm{}
-form div {
-  margin-bottom: 15px;
-}
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
-  color: #333;
-}
-input, textarea {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-input:focus, textarea:focus {
-  outline: none;
-  border-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-#eventDescription{
-    max-width: 100%;
-    min-width: 100%;
-}
-.modal-actions{
-    display: flex;
-    justify-content: space-between;
-}
-.modal-actions button{}
-.modal-actions button:hover{
-    color: #333;
-    background-color: #b0dbb2;
-}
-/*============================================================== 
-  Create event Modal end
-  ============================================================== */
-
-#footer-actions { 
-    background: #a8dadc; 
-    height: 200px; 
-}* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-}
-body { 
-    display: flex; 
-    flex-direction: column; 
-    min-height: 100vh; 
-    font-family: sans-serif; 
-}
-#navbar { 
-    background: #f4a261; 
-    height: 50px; 
-}
-#header {
-    background: #e76f51; 
-    height: 60px; 
-}
-
-#calendar-section { 
-    background: #2a9d8f; 
-    flex: 1;
-    display: flex; 
-    flex-direction: column; 
-}
-
-/*============================================================== 
-  Create event Modal start
-  ============================================================== */
-/*Common styling start*/
-.form-btn{
-    padding: 10px 15px;
-    border: none;
-    border-radius: 50px;
-    transition: ease-in-out 0.3s;
-}
-.form-btn:hover{
-    color: white;
-    background-color: red;
-}
-/*Common styling start*/
-#open{
-    width: 310px;
-    height: 90px;
-    border: none;
-    border-radius: 50px;
-    background-color: #b0dbb2;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    transition: ease-in-out 0.3s;
-}
-#open:hover{
-    background-color: white;
-}
-.modal-container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    pointer-events: none;
-}
-.modal{
-    width: 600px;
-    max-width: 100%;
-    padding: 30px 50px;
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
-}
-.form-header{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-}
-#close{}
-#eventForm{}
-form div {
-  margin-bottom: 15px;
-}
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
-  color: #333;
-}
-input, textarea {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-input:focus, textarea:focus {
-  outline: none;
-  border-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-#eventDescription{
-    max-width: 100%;
-    min-width: 100%;
-}
-.modal-actions{
-    display: flex;
-    justify-content: space-between;
-}
-.modal-actions button{}
-.modal-actions button:hover{
-    color: #333;
-    background-color: #b0dbb2;
-}
-/*============================================================== 
-  Create event Modal end
-  ============================================================== */
-
-#footer-actions { 
-    background: #a8dadc; 
-    height: 200px; 
 }
