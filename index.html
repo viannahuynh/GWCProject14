@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendar Dashboard</title>
 
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="lastMinuteEventModal" class="modal hidden">
+    <div class="modal-content">
+        <h2 id="modalTitle">Add a Last Minute Event</h2>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -100,6 +106,65 @@
             <button id="closeLastMinuteEvent" class="form-btn">Close</button>
           </div>
 
+    <div id="navbar">
+        <!-- Navigation bar content goes here -->
+        <h1>My Calendar App</h1>
+    </div>
+        
+    <div id="header">
+        <!-- Header content goes here -->
+    </div>
+    <div id="calendar-section">
+        <button id="open">Create Event</button>
+        <div id="calendar-grid"></div>
+
+        <!-- ====================== Create event button for modal Start ====================== -->
+
+        
+
+        <!-- Wrapper-->
+        <div class="modal-container">
+            <!-- Contents -->
+            <div class="modal">
+                <div class="form-header">
+                    <h2>Create Event</h2>
+                    <!--Close-->
+                    <button id="close" class="form-btn">Close</button>
+                </div>
+                
+                <!--Form start-->
+                <form action="#" method="#" id="eventForm">
+                    <div>
+                        <label for="eventTitle">Event Title</label>
+                        <input type="text" id="eventTitle" name="title" placeholder="Birthday / Wedding ...." required>
+                    </div>
+                    
+                    <div>
+                        <label for="eventDate">Date</label>
+                        <input type="date" id="eventDate" name="date">
+                    </div>
+
+                    <div>
+                        <label for="startTime">Start Time</label>
+                        <input type="time" id="startTime" name="startTime">
+                    </div>
+                    
+                    <div>
+                        <label for="endTime">End Time</label>
+                        <input type="time" id="endTime" name="endTime">
+                    </div>
+
+                    <div>
+                        <label for="eventDescription">Description</label>
+                        <textarea id="eventDescription" name="description" placeholder="Your text here...." rows="3"></textarea>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" id="cancelModalBtn" class="form-btn">Cancel</button>
+                        <button type="submit" id="saveEventBtn" class="form-btn">Create Event</button>
+                    </div>
+                </form>
+                <!--Form end-->
           <!--Form start-->
           <form action="#" method="#" id="lastMinuteForm">
             <div class="form-group">

@@ -194,3 +194,37 @@ body {
     background: #a8dadc; 
     height: 200px; 
 }
+
+#calendar-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-row {
+    display: grid;
+    grid-template-columns: 90px repeat(7, 1fr);
+}
+
+.calendar-cell {
+    border: 1px solid #ddd;
+    min-height: 60px;
+    padding: 8px;
+}
+
+.calendar-header {
+    font-weight: bold;
+}
+
+.time-header,
+.time-label {
+    background: #f5f5f5;
+}
+
+.day-header {
+    text-align: center;
+}
+
+.day-cell {
+    background: white;
+}
