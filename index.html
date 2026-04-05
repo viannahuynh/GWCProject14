@@ -1,211 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calendar Dashboard</title>
-
-    <link rel="stylesheet" href="styles.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendar Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div id="lastMinuteEventModal" class="modal hidden">
-    <div class="modal-content">
-        <h2 id="modalTitle">Add a Last Minute Event</h2>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div id="navbar">
-      <!-- Navigation bar content goes here -->
-      <h1>My Calendar App</h1>
+  <div id="navbar">
+    <h1>My Calendar App</h1>
+  </div>
+
+  <div id="header"></div>
+
+  <div id="calendar-section">
+    <!-- Display Area -->
+    <div id="eventDisplayArea">
+      <div id="eventInfo">
+        <p id="eventInfoText">No events yet. Create one!</p>
+      </div>
     </div>
 
-    <div id="header">
-      <!-- Header content goes here -->
+    <!-- Buttons -->
+    <div class="calendarBtn">
+      <button id="openCreateEvent">Create Event</button>
+      <button id="openLastMinuteEvent">Add a last minute event</button>
     </div>
-    <div id="calendar-section">
-      <!-- Calendar section content goes here -->
 
-       <!-- ====================== Display Area Start ====================== -->
-      <div id="eventDisplayArea">
-        <div id="eventInfo">
-            <p id="eventInfoText">No events yet. Create one!</p>
+    <!-- Calendar Grid -->
+    <div id="calendar-grid"></div>
+  </div>
+
+  <div id="footer-actions"></div>
+
+  <!-- Create Event Modal -->
+  <div id="createEvent" class="modal-container">
+    <div class="modal">
+      <div class="form-header">
+        <h2>Create Event</h2>
+        <button id="closeCreateEvent" class="form-btn" type="button">Close</button>
+      </div>
+
+      <form id="eventForm">
+        <div class="form-group">
+          <label for="eventTitle">Event Title</label>
+          <input
+            type="text"
+            id="eventTitle"
+            name="title"
+            placeholder="Birthday / Wedding ...."
+            required
+          />
         </div>
-      </div>
-      <!-- ====================== Display Area End ====================== -->
 
-      <div class="calendarBtn">
-        <button id="openCreateEvent">Create Event</button>
-        <button id="openLastMinuteEvent">Add a last minute event</button>
-      </div>
+        <div class="form-group">
+          <label for="eventDate">Date</label>
+          <input type="date" id="eventDate" name="date" />
+        </div>
 
-      <!-- ====================== Create event modal Start ====================== -->
-
-      <!-- Wrapper-->
-      <div id="createEvent" class="modal-container">
-        <!-- Contents -->
-        <div class="modal">
-          <div class="form-header">
-            <h2>Create Event</h2>
-            <!--Close-->
-            <button id="closeCreateEvent" class="form-btn">Close</button>
+        <div class="time-row">
+          <div class="form-group">
+            <label for="startTime">Start Time</label>
+            <input type="time" id="startTime" name="startTime" />
           </div>
 
-          <!--Form start-->
-          <form action="#" method="#" id="eventForm">
-            <div class="form-group">
-              <label for="eventTitle">Event Title</label>
-              <input type="text" id="eventTitle" name="title" placeholder="Birthday / Wedding ...." required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="eventDate">Date</label>
-              <input type="date" id="eventDate" name="date" />
-            </div>
-
-            <div class="time-row">
-              <div class="form-group">
-                <label for="startTime">Start Time</label>
-                <input type="time" id="startTime" name="startTime" />
-              </div>
-
-              <div class="form-group">
-                <label for="endTime">End Time</label>
-                <input type="time" id="endTime" name="endTime" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="eventDescription">Description</label>
-              <textarea id="eventDescription" name="description" placeholder="Your text here...." rows="3"
-              ></textarea>
-            </div>
-
-            <div class="modal-actions">
-              <button type="button" id="cancelEventBtn" class="form-btn">
-                Cancel
-              </button>
-              <button type="submit" id="saveEventBtn" class="form-btn">
-                Create Event
-              </button>
-            </div>
-          </form>
-          <!--Form end-->
-        </div>
-      </div>
-      <!-- ====================== Create event modal End ====================== -->
-      <!-- ====================== Last Minute Event modal Start ====================== -->
-
-      <!-- Wrapper-->
-      <div id="lastMinute" class="modal-container">
-        <!-- Contents -->
-        <div class="modal">
-          <div class="form-header">
-            <h2>Add a Last Minute Event</h2>
-            <!--Close-->
-            <button id="closeLastMinuteEvent" class="form-btn">Close</button>
+          <div class="form-group">
+            <label for="endTime">End Time</label>
+            <input type="time" id="endTime" name="endTime" />
           </div>
-
-    <div id="navbar">
-        <!-- Navigation bar content goes here -->
-        <h1>My Calendar App</h1>
-    </div>
-        
-    <div id="header">
-        <!-- Header content goes here -->
-    </div>
-    <div id="calendar-section">
-        <button id="open">Create Event</button>
-        <div id="calendar-grid"></div>
-
-        <!-- ====================== Create event button for modal Start ====================== -->
-
-        
-
-        <!-- Wrapper-->
-        <div class="modal-container">
-            <!-- Contents -->
-            <div class="modal">
-                <div class="form-header">
-                    <h2>Create Event</h2>
-                    <!--Close-->
-                    <button id="close" class="form-btn">Close</button>
-                </div>
-                
-                <!--Form start-->
-                <form action="#" method="#" id="eventForm">
-                    <div>
-                        <label for="eventTitle">Event Title</label>
-                        <input type="text" id="eventTitle" name="title" placeholder="Birthday / Wedding ...." required>
-                    </div>
-                    
-                    <div>
-                        <label for="eventDate">Date</label>
-                        <input type="date" id="eventDate" name="date">
-                    </div>
-
-                    <div>
-                        <label for="startTime">Start Time</label>
-                        <input type="time" id="startTime" name="startTime">
-                    </div>
-                    
-                    <div>
-                        <label for="endTime">End Time</label>
-                        <input type="time" id="endTime" name="endTime">
-                    </div>
-
-                    <div>
-                        <label for="eventDescription">Description</label>
-                        <textarea id="eventDescription" name="description" placeholder="Your text here...." rows="3"></textarea>
-                    </div>
-                    
-                    <div class="modal-actions">
-                        <button type="button" id="cancelModalBtn" class="form-btn">Cancel</button>
-                        <button type="submit" id="saveEventBtn" class="form-btn">Create Event</button>
-                    </div>
-                </form>
-                <!--Form end-->
-          <!--Form start-->
-          <form action="#" method="#" id="lastMinuteForm">
-            <div class="form-group">
-              <label for="lastMinuteTitle">Event Title</label>
-              <input type="text" id="lastMinuteTitle" name="title" placeholder="Birthday / Wedding ...." required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="lastMinuteDate">Date</label>
-              <input type="date" id="lastMinuteDate" name="date" />
-            </div>
-
-            <div class="form-group">
-              <label for="lastMinuteDescription">Description</label>
-              <textarea id="lastMinuteDescription" name="description" placeholder="Your text here...." rows="3" ></textarea>
-            </div>
-
-            <div class="modal-actions">
-              <button type="button" id="cancelLastMinuteBtn" class="form-btn">
-                Cancel
-              </button>
-              <button type="submit" id="saveLastMinuteBtn" class="form-btn">
-                Create Event
-              </button>
-            </div>
-          </form>
-          <!--Form end-->
         </div>
+
+        <div class="form-group">
+          <label for="eventDescription">Description</label>
+          <textarea
+            id="eventDescription"
+            name="description"
+            placeholder="Your text here...."
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelEventBtn" class="form-btn">Cancel</button>
+          <button type="submit" id="saveEventBtn" class="form-btn">Create Event</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Last Minute Event Modal -->
+  <div id="lastMinute" class="modal-container">
+    <div class="modal">
+      <div class="form-header">
+        <h2>Add a Last Minute Event</h2>
+        <button id="closeLastMinuteEvent" class="form-btn" type="button">Close</button>
       </div>
-      <!-- ====================== Last Minute Event modal End ====================== -->
 
-      <!-- ====================== Calendar grid start ======================-->
-      <div id="calendar-grid"></div>
-      <!-- ====================== Calendar grid end ======================-->
-    </div>
-    <div id="footer-actions">
-      <!-- Footer actions content goes here -->
-    </div>
-    <!--<div>Testing</div>-->
+      <form id="lastMinuteForm">
+        <div class="form-group">
+          <label for="lastMinuteTitle">Event Title</label>
+          <input
+            type="text"
+            id="lastMinuteTitle"
+            name="title"
+            placeholder="Birthday / Wedding ...."
+            required
+          />
+        </div>
 
-    <script src="app.js"></script>
-  </body>
+        <div class="form-group">
+          <label for="lastMinuteDate">Date</label>
+          <input type="date" id="lastMinuteDate" name="date" />
+        </div>
+
+        <div class="form-group">
+          <label for="lastMinuteDescription">Description</label>
+          <textarea
+            id="lastMinuteDescription"
+            name="description"
+            placeholder="Your text here...."
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelLastMinuteBtn" class="form-btn">Cancel</button>
+          <button type="submit" id="saveLastMinuteBtn" class="form-btn">Create Event</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
 </html>
