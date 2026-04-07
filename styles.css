@@ -114,7 +114,8 @@ body {
 }
 
 .form-group input, 
-.form-group textarea {
+.form-group textarea,
+.form-group select {
     width: 100%;
     padding: 8px 12px;
     border: 1px solid #ddd;
@@ -125,7 +126,8 @@ body {
 }
 
 .form-group input:focus, 
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
     outline: none;
     border-color: #2a9d8f;
     box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.2);
@@ -225,6 +227,30 @@ body {
 .day-cell {
     background: white;
 }
+
+.last-minute-event {
+    margin: 4px 0;
+    padding: 6px 8px;
+    background-color: #b0dbb2;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.3;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: 0.2s ease-in-out;
+}
+
+.last-minute-event:hover {
+    background-color: #9bd19e;
+    transform: scale(1.02);
+}
+
+.last-minute-event strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 13px;
+}
+
 /*============================================================== 
   calendar Grid start
   ============================================================== */
