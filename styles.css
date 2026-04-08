@@ -97,9 +97,6 @@ body {
     font-size: 22px;
 }
 
-#closeCreateEvent, 
-#closeLastMinuteEvent {}
-
 /* Form styling */
 .form-group {
     margin-bottom: 15px;
@@ -187,28 +184,33 @@ body {
     pointer-events: auto;
 }
 
-/*Last minute event*/
 /*============================================================== 
   Modal Styles End
   ============================================================== */
+
 /*============================================================== 
-  calendar Grid start
+  Calendar Grid Styles Start
   ============================================================== */
+
 #calendar-grid {
     width: 100%;
     display: flex;
     flex-direction: column;
+    overflow: visible;
 }
 
 .calendar-row {
     display: grid;
     grid-template-columns: 90px repeat(7, 1fr);
+    position: relative;
 }
 
 .calendar-cell {
     border: 1px solid #ddd;
     min-height: 60px;
     padding: 8px;
+    position: relative;
+    overflow: visible;
 }
 
 .calendar-header {
@@ -226,8 +228,43 @@ body {
 
 .day-cell {
     background: white;
+    position: relative;
+    overflow: visible;
 }
 
+/* Event block inside a calendar cell */
+.event-block {
+    background-color: #264653;
+    color: white;
+    border-radius: 4px;
+    padding: 4px 6px;
+    margin-top: 2px;
+    font-size: 11px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+
+.event-block:hover {
+    background-color: #1a3340;
+}
+
+.event-block-title {
+    display: block;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.event-block-time {
+    display: block;
+    font-size: 10px;
+    opacity: 0.85;
+}
+
+/* Last minute event styling (legacy) */
 .last-minute-event {
     margin: 4px 0;
     padding: 6px 8px;
@@ -251,10 +288,13 @@ body {
     font-size: 13px;
 }
 
+
+
 /*============================================================== 
-  calendar Grid start
+  Calendar Grid Styles End
   ============================================================== */
 
+/* Footer */
 #footer-actions { 
     background: #a8dadc; 
     height: 200px; 
