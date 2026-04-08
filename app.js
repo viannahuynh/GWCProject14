@@ -213,7 +213,7 @@ function showEventPopup(evt, anchorEl) {
     <p class="event-popup-detail">${evt.date}</p>
     <p class="event-popup-detail">${evt.startTime} - ${evt.endTime}</p>
     ${evt.description ? `<p class="event-popup-detail">${escapeHtml(evt.description)}</p>` : ''}
-    <div style="display: flex; justify-contents: space-between;">
+    <div style="display: flex; justify-content: space-between;">
     <button class="event-popup-delete" data-event-id="${evt.id}">Delete</button>
     <button class="event-popup-close">X</button>
     </div>
