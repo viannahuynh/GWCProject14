@@ -56,6 +56,30 @@ body {
     background-color: white;
 }
 
+.weekNav {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.weekNav button {
+    width: 310px;
+    height: 90px;
+    border: none;
+    border-radius: 50px;
+    background-color: #b0dbb2;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.weekNav button:hover {
+    background-color: white;
+}
+
 /*============================================================== 
   Modal Styles Start
   ============================================================== */
@@ -238,12 +262,13 @@ body {
     color: white;
     border-radius: 4px;
     padding: 4px 6px;
-    margin-top: 2px;
-    font-size: 11px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: background-color 0.2s ease;
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    top: 2px;
+    z-index: 5;
+    overflow: visible;
+    min-height: 58px;
 }
 
 .event-block:hover {
@@ -253,15 +278,35 @@ body {
 .event-block-title {
     display: block;
     font-weight: 700;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
+}
+
+.event-block .event-popup-title,
+.event-block .event-popup-detail {
+    white-space: normal;
 }
 
 .event-block-time {
     display: block;
     font-size: 10px;
     opacity: 0.85;
+}
+
+.event-popup {
+    margin-top: 8px;
+    color: inherit;
+}
+
+.event-popup-title,
+.event-popup-detail {
+    color: inherit;
+}
+
+.event-popup-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 8px;
 }
 
 /* Last minute event styling (legacy) */
@@ -288,8 +333,6 @@ body {
     font-size: 13px;
 }
 
-
-
 /*============================================================== 
   Calendar Grid Styles End
   ============================================================== */
@@ -300,36 +343,3 @@ body {
     height: 200px; 
 }
 
-#calendar-grid {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.calendar-row {
-    display: grid;
-    grid-template-columns: 90px repeat(7, 1fr);
-}
-
-.calendar-cell {
-    border: 1px solid #ddd;
-    min-height: 60px;
-    padding: 8px;
-}
-
-.calendar-header {
-    font-weight: bold;
-}
-
-.time-header,
-.time-label {
-    background: #f5f5f5;
-}
-
-.day-header {
-    text-align: center;
-}
-
-.day-cell {
-    background: white;
-}
