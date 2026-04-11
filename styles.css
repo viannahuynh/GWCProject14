@@ -12,12 +12,12 @@ body {
 }
 
 #navbar { 
-    background: #f4a261; 
+    background: #75af77; 
     height: 50px; 
 }
 
 #header {
-    background: #e76f51; 
+    background: #81e4b7; 
     height: 60px; 
 }
 
@@ -45,7 +45,7 @@ body {
     border: none;
     border-radius: 50px;
     background-color: #b0dbb2;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 4px rgba(134, 229, 147, 0.2);
     text-align: center;
     transition: ease-in-out 0.3s;
     cursor: pointer;
@@ -53,7 +53,7 @@ body {
 }
 
 .calendarBtn button:hover {
-    background-color: white;
+    background-color: rgb(105, 236, 157);
 }
 
 /*============================================================== 
@@ -69,7 +69,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(10, 218, 237, 0.3);
     opacity: 0;
     pointer-events: none;
     transition: 0.3s ease;
@@ -81,8 +81,8 @@ body {
     max-width: 90%;
     padding: 30px 50px;
     border-radius: 8px;
-    background-color: white;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+    background-color: rgb(84, 144, 88);
+    box-shadow: 0px 3px 4px rgba(125, 207, 104, 0.2);
 }
 
 .form-header {
@@ -109,7 +109,7 @@ body {
     display: block;
     margin-bottom: 5px;
     font-weight: 600;
-    color: #333;
+    color: #5fa264;
     font-size: 14px;
 }
 
@@ -117,7 +117,7 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 8px 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #040b34;
     border-radius: 4px;
     font-size: 14px;
     box-sizing: border-box;
@@ -165,12 +165,12 @@ body {
 
 .form-btn:hover {
     color: white;
-    background-color: red;
+    background-color: rgba(78, 145, 80, 0.983);
 }
 
 .modal-actions button:hover {
     color: #333;
-    background-color: #b0dbb2;
+    background-color: #5b945e;
 }
 
 /*Create event*/
@@ -191,6 +191,6 @@ body {
   ============================================================== */
 
 #footer-actions { 
-    background: #a8dadc; 
+    background: #66b3c7; 
     height: 200px; 
 }
