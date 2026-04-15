@@ -9,28 +9,34 @@ body {
     flex-direction: column; 
     min-height: 100vh; 
     font-family: sans-serif; 
+    background-image: url("background-goalstepper.jpg");
+
+
 }
+
 
 #navbar { 
-    background: #75af77; 
-    height: 50px; 
+    color: #1a3340;
+    padding-top: 10px;
+    height: 60px; 
+    text-align: center;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+    font-size: x-large;
 }
 
-#header {
-    background: #81e4b7; 
-    height: 60px; 
-}
 
 #calendar-section { 
-    padding: 20px 10px;
-    background: #2a9d8f; 
     flex: 1;
     display: flex; 
-    flex-direction: column; 
+    flex-direction: column;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+    p{color: #1a3340;}
+    font-size: 30px;
+    padding-bottom: 10px;
 }
 
 #eventDisplayArea{
-    margin: 100px auto;
+    margin: 50px auto;
     text-align: center;
 }
 
@@ -40,20 +46,26 @@ body {
 }
 
 .calendarBtn button {
-    width: 310px;
-    height: 90px;
-    border: none;
-    border-radius: 50px;
-    background-color: #b0dbb2;
-    box-shadow: 0px 3px 4px rgba(134, 229, 147, 0.2);
+    width: 250px;
+    height: 50px;
+    border: #66b3c7;
+    border-radius: 200px;
+    
+    background-color: rgb(233, 242, 216);
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+    border: 10px double rgb(226, 227, 176);
+
+    
     text-align: center;
     transition: ease-in-out 0.3s;
     cursor: pointer;
+
     font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .calendarBtn button:hover {
-    background-color: rgb(105, 236, 157);
+    background-color: rgb(190, 186, 115);
 }
 
 .weekNav {
@@ -64,20 +76,23 @@ body {
 }
 
 .weekNav button {
-    width: 310px;
-    height: 90px;
+    width: 250px;
+    height: 50px;
     border: none;
     border-radius: 50px;
-    background-color: #b0dbb2;
+    background-color: rgb(233, 242, 216);
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+    border: 10px double rgb(226, 227, 176);
+
     text-align: center;
     transition: ease-in-out 0.3s;
     cursor: pointer;
     font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .weekNav button:hover {
-    background-color: white;
+    background-color: rgb(190, 186, 115);
 }
 
 /*============================================================== 
@@ -93,11 +108,14 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(10, 218, 237, 0.3);
+
+    background-color: rgba(4, 1, 25, 0.3);
     opacity: 0;
     pointer-events: none;
     transition: 0.3s ease;
     z-index: 1000;
+
+
 }
 
 .modal {
@@ -105,7 +123,7 @@ body {
     max-width: 90%;
     padding: 30px 50px;
     border-radius: 8px;
-    background-color: rgb(84, 144, 88);
+    background-color: rgb(15, 70, 148);
     box-shadow: 0px 3px 4px rgba(125, 207, 104, 0.2);
 }
 
@@ -114,23 +132,29 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+   
 }
 
 .form-header h2 {
     margin: 0;
     font-size: 22px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
 }
 
 /* Form styling */
 .form-group {
     margin-bottom: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
 }
 
 .form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: 600;
-    color: #5fa264;
+    color: #5f91a2;
     font-size: 14px;
 }
 
@@ -173,6 +197,7 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* Button styles */
@@ -187,25 +212,28 @@ body {
 }
 
 .form-btn:hover {
-    color: white;
-    background-color: rgba(78, 145, 80, 0.983);
+    color: rgb(133, 143, 50);
+    background-color: rgba(224, 243, 181, 0.983);
 }
 
 .modal-actions button:hover {
     color: #333;
-    background-color: #5b945e;
+    background-color: hsl(66, 58%, 75%);
+    
 }
 
 /*Create event*/
 #createEvent.show {
     opacity: 1;
     pointer-events: auto;
+
 }
 
 /* Last minute event */
 #lastMinute.show {
     opacity: 1;
     pointer-events: auto;
+
 }
 
 /*============================================================== 
@@ -215,12 +243,19 @@ body {
 /*============================================================== 
   Calendar Grid Styles Start
   ============================================================== */
+#calendar-wrap {
+    margin: 50px;
+    border: 10px double rgb(226, 227, 176);
+    border-radius: 15px;
+
+}
 
 #calendar-grid {
     width: 100%;
     display: flex;
     flex-direction: column;
     overflow: visible;
+    backdrop-filter: blur(25px);
 }
 
 .calendar-row {
@@ -230,35 +265,39 @@ body {
 }
 
 .calendar-cell {
-    border: 1px solid #ddd;
+    border: 1px solid #1c114b;
     min-height: 60px;
     padding: 8px;
     position: relative;
     overflow: visible;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .calendar-header {
-    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .time-header,
 .time-label {
-    background: #f5f5f5;
+    font-size: large;
+    background-color: #00000025;
+
 }
 
 .day-header {
     text-align: center;
+    background-color: #00000025;
 }
 
 .day-cell {
-    background: white;
     position: relative;
     overflow: visible;
 }
 
 /* Event block inside a calendar cell */
 .event-block {
-    background-color: #264653;
+    background-color: hsl(57, 37%, 60%);
+    transition: background-color 0.5s;
     color: white;
     border-radius: 4px;
     padding: 4px 6px;
@@ -269,10 +308,11 @@ body {
     z-index: 5;
     overflow: visible;
     min-height: 58px;
+    overflow: auto;
 }
 
 .event-block:hover {
-    background-color: #1a3340;
+    background-color: hsl(57, 37%, 75%);
 }
 
 .event-block-title {
@@ -339,7 +379,6 @@ body {
 
 /* Footer */
 #footer-actions { 
-    background: #66b3c7; 
     height: 200px; 
 }
 
