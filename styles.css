@@ -87,7 +87,7 @@ body {
 
 
 
-#navbar { 
+#navbar, .intro-title { 
     color: #1a3340;
     padding-top: 10px;
     height: 60px; 
