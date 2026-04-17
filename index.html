@@ -19,8 +19,9 @@
   <!-- ================= Intro Overlay end ==================== -->
 
 
+
   <div id="navbar">
-    <h1>My Calendar App</h1>
+    <h1>GoalStepper</h1>
   </div>
 
   <div id="header"></div>
@@ -39,8 +40,16 @@
       <button id="openLastMinuteEvent">Add a last minute event</button>
     </div>
 
+    <!-- Week Navigation -->
+    <div class="weekNav">
+      <button id="prevWeek">Previous Week</button>
+      <button id="nextWeek">Next Week</button>
+    </div>
+
     <!-- Calendar Grid -->
-    <div id="calendar-grid"></div>
+    <div id="calendar-wrap">
+      <div id="calendar-grid"></div>
+    </div>
   </div>
 
   <div id="footer-actions"></div>
@@ -145,6 +154,22 @@
         </div>
 
         <div class="form-group">
+          <label for="lastMinuteTimeOfDay">Time of Day</label>
+          <select id="lastMinuteTimeOfDay">
+            <option value="morning">Morning (6 AM – 12 PM)</option>
+            <option value="afternoon">Afternoon (12 PM – 6 PM)</option>
+            <option value="evening">Evening (6 PM – 12 AM)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="lastMinuteSlotHour">Available Slot</label>
+          <select id="lastMinuteSlotHour">
+            <option value="">Select an available slot</option>
+          </select>
+        </div>
+
+        <div class="form-group">
           <label for="lastMinuteDescription">Description</label>
           <textarea
             id="lastMinuteDescription"
@@ -163,8 +188,7 @@
   </div>
 
   <script src="app.js"></script>
-
-  <!-- to control the intro overlay feature -->
+  <!-- for intro overlay-->
   <script>
   const overlay = document.getElementById('intro-overlay');
   if (overlay) {
