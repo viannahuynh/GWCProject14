@@ -9,13 +9,109 @@ body {
     flex-direction: column; 
     min-height: 100vh; 
     font-family: sans-serif; 
+}
+
+
+
+
+
+/*============================================================== 
+ intro overlay start
+============================================================== */
+/* Intro Overlay */
+#intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-image: url("background-goalstepper.jpg");
 
 
 }
 
 
-#navbar { 
+
+
+
+/*============================================================== 
+ intro overlay start
+============================================================== */
+/* Intro Overlay */
+#intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("background-goalstepper.jpg");
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#intro-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+}
+
+.intro-title {
+    letter-spacing: 0.05em;
+    animation: introFadeDown 1.2s ease both;
+}
+
+.intro-subtitle {
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    color: #1a3340;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    animation: introFadeDown 1.2s ease 0.3s both;
+}
+
+.intro-click-hint {
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+    font-size: 0.85rem;
+    color: #1a3340;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: introFadeDown 1s ease 1.2s both, introPulse 2.5s ease 2.4s infinite;
+}
+
+@keyframes introFadeDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes introPulse {
+    0%, 100% { opacity: 0.5; }
+    50%      { opacity: 1; }
+}
+
+/*============================================================== 
+ intro overlay end
+============================================================== */
+
+
+
+
+
+#navbar, .intro-title { 
     color: #1a3340;
     padding-top: 10px;
     height: 60px; 
@@ -24,19 +120,21 @@ body {
     font-size: x-large;
 }
 
+#header {
+    background: #e76f51; 
+    height: 60px; 
+}
 
 #calendar-section { 
+    padding: 20px 10px;
+    background: #2a9d8f; 
     flex: 1;
     display: flex; 
-    flex-direction: column;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
-    p{color: #1a3340;}
-    font-size: 30px;
-    padding-bottom: 10px;
+    flex-direction: column; 
 }
 
 #eventDisplayArea{
-    margin: 50px auto;
+    margin: 100px auto;
     text-align: center;
 }
 
@@ -46,53 +144,20 @@ body {
 }
 
 .calendarBtn button {
-    width: 250px;
-    height: 50px;
-    border: #66b3c7;
-    border-radius: 200px;
-    
-    background-color: rgb(233, 242, 216);
+    width: 310px;
+    height: 90px;
+    border: none;
+    border-radius: 50px;
+    background-color: #b0dbb2;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
-    border: 10px double rgb(226, 227, 176);
-
-    
     text-align: center;
     transition: ease-in-out 0.3s;
     cursor: pointer;
-
     font-size: 16px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .calendarBtn button:hover {
-    background-color: rgb(190, 186, 115);
-}
-
-.weekNav {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.weekNav button {
-    width: 250px;
-    height: 50px;
-    border: none;
-    border-radius: 50px;
-    background-color: rgb(233, 242, 216);
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
-    border: 10px double rgb(226, 227, 176);
-
-    text-align: center;
-    transition: ease-in-out 0.3s;
-    cursor: pointer;
-    font-size: 16px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.weekNav button:hover {
-    background-color: rgb(190, 186, 115);
+    background-color: white;
 }
 
 /*============================================================== 
@@ -108,14 +173,11 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-
-    background-color: rgba(4, 1, 25, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     opacity: 0;
     pointer-events: none;
     transition: 0.3s ease;
     z-index: 1000;
-
-
 }
 
 .modal {
@@ -123,8 +185,8 @@ body {
     max-width: 90%;
     padding: 30px 50px;
     border-radius: 8px;
-    background-color: rgb(15, 70, 148);
-    box-shadow: 0px 3px 4px rgba(125, 207, 104, 0.2);
+    background-color: white;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
 }
 
 .form-header {
@@ -132,29 +194,23 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-   
 }
 
 .form-header h2 {
     margin: 0;
     font-size: 22px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    
 }
 
 /* Form styling */
 .form-group {
     margin-bottom: 15px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    
 }
 
 .form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: 600;
-    color: #5f91a2;
+    color: #333;
     font-size: 14px;
 }
 
@@ -163,7 +219,7 @@ body {
 .form-group select {
     width: 100%;
     padding: 8px 12px;
-    border: 1px solid #040b34;
+    border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
     box-sizing: border-box;
@@ -197,7 +253,6 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 12px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* Button styles */
@@ -212,28 +267,25 @@ body {
 }
 
 .form-btn:hover {
-    color: rgb(133, 143, 50);
-    background-color: rgba(224, 243, 181, 0.983);
+    color: white;
+    background-color: red;
 }
 
 .modal-actions button:hover {
     color: #333;
-    background-color: hsl(66, 58%, 75%);
-    
+    background-color: #b0dbb2;
 }
 
 /*Create event*/
 #createEvent.show {
     opacity: 1;
     pointer-events: auto;
-
 }
 
 /* Last minute event */
 #lastMinute.show {
     opacity: 1;
     pointer-events: auto;
-
 }
 
 /*============================================================== 
@@ -243,19 +295,12 @@ body {
 /*============================================================== 
   Calendar Grid Styles Start
   ============================================================== */
-#calendar-wrap {
-    margin: 50px;
-    border: 10px double rgb(226, 227, 176);
-    border-radius: 15px;
-
-}
 
 #calendar-grid {
     width: 100%;
     display: flex;
     flex-direction: column;
     overflow: visible;
-    backdrop-filter: blur(25px);
 }
 
 .calendar-row {
@@ -265,88 +310,62 @@ body {
 }
 
 .calendar-cell {
-    border: 1px solid #1c114b;
+    border: 1px solid #ddd;
     min-height: 60px;
     padding: 8px;
     position: relative;
     overflow: visible;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .calendar-header {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
 }
 
 .time-header,
 .time-label {
-    font-size: large;
-    background-color: #00000025;
-
+    background: #f5f5f5;
 }
 
 .day-header {
     text-align: center;
-    background-color: #00000025;
 }
 
 .day-cell {
+    background: white;
     position: relative;
     overflow: visible;
 }
 
 /* Event block inside a calendar cell */
 .event-block {
-    background-color: hsl(57, 37%, 60%);
-    transition: background-color 0.5s;
+    background-color: #264653;
     color: white;
     border-radius: 4px;
     padding: 4px 6px;
-    position: absolute;
-    left: 4px;
-    right: 4px;
-    top: 2px;
-    z-index: 5;
-    overflow: visible;
-    min-height: 58px;
-    overflow: auto;
+    margin-top: 2px;
+    font-size: 11px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
 }
 
 .event-block:hover {
-    background-color: hsl(57, 37%, 75%);
+    background-color: #1a3340;
 }
 
 .event-block-title {
     display: block;
     font-weight: 700;
-    overflow: visible;
-}
-
-.event-block .event-popup-title,
-.event-block .event-popup-detail {
-    white-space: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .event-block-time {
     display: block;
     font-size: 10px;
     opacity: 0.85;
-}
-
-.event-popup {
-    margin-top: 8px;
-    color: inherit;
-}
-
-.event-popup-title,
-.event-popup-detail {
-    color: inherit;
-}
-
-.event-popup-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    margin-top: 8px;
 }
 
 /* Last minute event styling (legacy) */
@@ -373,12 +392,48 @@ body {
     font-size: 13px;
 }
 
+
+
 /*============================================================== 
   Calendar Grid Styles End
   ============================================================== */
 
 /* Footer */
 #footer-actions { 
+    background: #a8dadc; 
     height: 200px; 
 }
 
+#calendar-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-row {
+    display: grid;
+    grid-template-columns: 90px repeat(7, 1fr);
+}
+
+.calendar-cell {
+    border: 1px solid #ddd;
+    min-height: 60px;
+    padding: 8px;
+}
+
+.calendar-header {
+    font-weight: bold;
+}
+
+.time-header,
+.time-label {
+    background: #f5f5f5;
+}
+
+.day-header {
+    text-align: center;
+}
+
+.day-cell {
+    background: white;
+}
